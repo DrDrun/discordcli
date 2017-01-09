@@ -21,7 +21,7 @@ func NewSession(Username, Password string) *Session {
 //Start attaches a discordgo listener to the Sessions and fills it.
 func (Session *Session) Start() error {
 
-	fmt.Printf("*Starting Session...")
+	fmt.Printf("Connecting...")
 
 	dg, err := discordgo.New(Session.Username, Session.Password)
 	if err != nil {
@@ -58,8 +58,6 @@ func (Session *Session) NewState(GuildID string, MessageAmount int) (*State, err
 	//Set Session
 	State.Session = Session
 
-
-
 	//Set Guild
 	for _, guildID := range Session.Guilds {
 		if guildID.ID == GuildID {
@@ -79,7 +77,6 @@ func (Session *Session) NewState(GuildID string, MessageAmount int) (*State, err
 	for _, Member := range State.Guild.Members {
 		State.Members[Member.User.Username] = Member
 	}
-
 
 	//RetrieveMemberRoles
 	State.MemberRole = make(map[string]*discordgo.Role)
@@ -111,10 +108,8 @@ func (Session *Session) NewState(GuildID string, MessageAmount int) (*State, err
 
 	State.Channels = State.Guild.Channels
 
-
 	//Set User Channels
 	//State.Chan = Session.DiscordGo.UserChannels()
-
 
 	return State, nil
 }
