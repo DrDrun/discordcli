@@ -1,15 +1,13 @@
 # discord-cli
 Minimalistic Command-Line Interface for Discord
 
-I haven't tried to mess with the AUR yet, if I ever will, so it is unlikely that anyone has found this.
+Master (Semi-Stable): [![Build Status](https://travis-ci.org/Rivalo/discord-cli.svg?branch=master)](https://travis-ci.org/Rivalo/discord-cli), Develop (Default Git Branch): [![Build Status](https://travis-ci.org/Rivalo/discord-cli.svg?branch=develop)](https://travis-ci.org/Rivalo/discord-cli)
 
-Reagrdless, most of this isn't my work. Most of it was done by a github user that goes by Rivalo.
-All I have done is implemented private messaging, and while I plan to do more, that does not change
-how little work done here that is mine.
+Join our Discord Chat! https://discord.gg/0pXWCo5RQbVuFHDM
 
-Questions can be answered at my discord server, which at the time of editing is empty:
+![I suck at English, while 256 colors is enough for everyone](screenshot.png)
 
-https://discord.gg/qp2Q8jB
+<sub>Disclaimer: Currently only tested on Linux.</sub>
 
 ### How to Install the Master branch?
 Currently the easiest working way to install is to use the Go tools. I'm looking at using GCCGO and makefiles to reduce installation steps, and make setting PATHS unnecessary.
@@ -17,6 +15,8 @@ Currently the easiest working way to install is to use the Go tools. I'm looking
 * `$ go get -u github.com/Rivalo/discord-cli`
 * Go to the `bin` folder inside your `$GOPATH`
 * `./discord-cli`
+
+For trying the develop branch, do a git checkout and reinstall the application.
 
 ### (Master) Configuration Settings
 Configuration files are being stored in JSON format and are automatically created when you first run discord-cli. Do not change the 'key' value inside `{"key":"value"}`, this is the part that discord-cli uses for parsing, missing keys will definitely return errors.
@@ -28,6 +28,8 @@ Configuration files are being stored in JSON format and are automatically create
 | messagedefault| (true or false) Display messages automatically|
 | messages   | Amount of Messages kept in memory |
 
+NOTE: The Configuration settings are likely to change. Breaking updates are stated in the release section. To solve problems, delete `~/.config/discord-cli/config.json` and restart discord-cli.
+
 ### (Master) Chat Commands
 When inside a text channel, the following commands are available:
 
@@ -37,4 +39,3 @@ When inside a text channel, the following commands are available:
 | :g      | Change listening Guild|
 | :c      | Change listening Channel inside Guild |
 | :m [n]      | Display last [n] messages: ex. `:m 2` displays last two messages |
-| :p      | Pulls up a menu to choose an already active private message |
