@@ -6,8 +6,8 @@ import (
 	"log"
 	"regexp"
 
-	"github.com/rivalo/discord-cli/DiscordState"
 	"github.com/chzyer/readline"
+	"github.com/rivalo/discord-cli/DiscordState"
 )
 
 //Global Message Types

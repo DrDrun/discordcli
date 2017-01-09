@@ -19,8 +19,8 @@ func ParseForCommands(line string) string {
 		SelectPrivate()
 		line = ""
 	/*case ":m":
-		AddUserChannel()
-		line = ""*/
+	AddUserChannel()
+	line = ""*/
 	default:
 		// Nothing
 	}
@@ -65,6 +65,7 @@ func SelectChannel() {
 	ShowContent()
 }
 
+//SelectPrivate a private channel
 func SelectPrivate() {
 	State.Enabled = false
 	SelectPrivateMenu()

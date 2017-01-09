@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-
+//SelectPrivateMenu is a menu item that changes to a private channel
 func SelectPrivateMenu() {
 
 Start:
@@ -14,11 +14,9 @@ Start:
 	Msg(InfoMsg, "Select a Member:\n")
 
 	UserChannels, err := Session.DiscordGo.UserChannels()
-	
-	
-	
-	if err != nil{
-		Msg(ErrorMsg, "No Private Channels\n")	
+
+	if err != nil {
+		Msg(ErrorMsg, "No Private Channels\n")
 	}
 
 	UserMap := make(map[int]string)
@@ -31,10 +29,10 @@ Start:
 	}
 	//Msg(TextMsg, "%d", UC[0].Position)
 	//for cha,_ := range UC {
-		//Msg(TextMsg, cha)
-		//fmt.Println("Key:", key, "Value:", Member)
-		//SelectMap[SelectID] = Member.ID
-		//Msg(TextMsg, "[%d] %s\n", SelectID, Member.Name)
+	//Msg(TextMsg, cha)
+	//fmt.Println("Key:", key, "Value:", Member)
+	//SelectMap[SelectID] = Member.ID
+	//Msg(TextMsg, "[%d] %s\n", SelectID, Member.Name)
 	//	SelectID++
 	//}
 	Msg(TextMsg, "[b] Back\n")
@@ -47,7 +45,7 @@ Start:
 	}
 
 	ResponseInteger, err := strconv.Atoi(response)
-	if err != nil{
+	if err != nil {
 		Msg(ErrorMsg, "(GU) Conversion Error: %s\n", err)
 		goto Start
 	}
@@ -57,8 +55,8 @@ Start:
 		goto Start
 	}
 
-	State.Channel = UserChannels[ResponseInteger]	
-	
+	State.Channel = UserChannels[ResponseInteger]
+
 }
 
 //SelectGuildMenu is a menu item that creates a new State on basis of Guild selection
