@@ -7,7 +7,7 @@ import (
 	"regexp"
 
 	"github.com/chzyer/readline"
-	"github.com/rivalo/discord-cli/DiscordState"
+	"github.com/theboxmage/discord-cli/DiscordState"
 )
 
 //Global Message Types
