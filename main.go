@@ -87,7 +87,9 @@ func main() {
 //InitWindow creates a New CLI Window
 func InitWindow() {
 	SelectGuildMenu()
-	SelectChannelMenu()
+	if State.Channel == nil {
+		SelectChannelMenu()
+	}
 	State.Enabled = true
 	ShowContent()
 }

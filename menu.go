@@ -35,14 +35,8 @@ Start:
 	//Msg(TextMsg, "[%d] %s\n", SelectID, Member.Name)
 	//	SelectID++
 	//}
-	Msg(TextMsg, "[b] Back\n")
-
 	var response string
 	fmt.Scanf("%s\n", &response)
-
-	if response == "b" {
-		return
-	}
 
 	ResponseInteger, err := strconv.Atoi(response)
 	if err != nil {
