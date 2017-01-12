@@ -76,7 +76,7 @@ Start:
 		SelectID++
 	}
 	Msg(TextMsg, "[b] Extra Options\n")
-	Msg(TextMsg, "[p] Private Channels")
+	Msg(TextMsg, "[p] Private Channels\n")
 
 	var response string
 	fmt.Scanf("%s\n", &response)
@@ -90,8 +90,11 @@ Start:
 		if State != nil {
 			SelectPrivate()
 		} else {
-			Msg(ErrorMsg, "Due to current issues, please choose a guild before attempting to switch to pvivate\n")
-			goto Start
+			State, err = Session.NewState(SelectMap[0], Config.Messages)
+			if err != nil {
+				log.Fatal(err)
+			}
+			SelectPrivate()
 		}
 	} else {
 		if err != nil {
