@@ -86,12 +86,11 @@ Start:
 		ExtraGuildMenuOptions()
 		goto Start
 	}
-
 	if response == "p" {
 		if State != nil {
 			SelectPrivate()
 		} else {
-			Msg(ErrorMsg, "Due to current constains, please choose a guild before attempting to switch to pvivate\n")
+			Msg(ErrorMsg, "Due to current issues, please choose a guild before attempting to switch to pvivate\n")
 			goto Start
 		}
 	} else {
