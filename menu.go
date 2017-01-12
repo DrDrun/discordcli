@@ -76,29 +76,39 @@ Start:
 		SelectID++
 	}
 	Msg(TextMsg, "[b] Extra Options\n")
+	Msg(TextMsg, "[p] Private Channels")
 
 	var response string
 	fmt.Scanf("%s\n", &response)
+	ResponseInteger, err := strconv.Atoi(response)
 
 	if response == "b" {
 		ExtraGuildMenuOptions()
 		goto Start
 	}
 
-	ResponseInteger, err := strconv.Atoi(response)
-	if err != nil {
-		Msg(ErrorMsg, "(GU) Conversion Error: %s\n", err)
-		goto Start
-	}
+	if response == "p" {
+		if State != nil {
+			SelectPrivate()
+		} else {
+			Msg(ErrorMsg, "Due to current constains, please choose a guild before attempting to switch to pvivate\n")
+			goto Start
+		}
+	} else {
+		if err != nil {
+			Msg(ErrorMsg, "(GU) Conversion Error: %s\n", err)
+			goto Start
+		}
 
-	if ResponseInteger > SelectID-1 || ResponseInteger < 0 {
-		Msg(ErrorMsg, "(GU) Error: ID is out of bounds\n")
-		goto Start
-	}
+		if ResponseInteger > SelectID-1 || ResponseInteger < 0 {
+			Msg(ErrorMsg, "(GU) Error: ID is out of bounds\n")
+			goto Start
+		}
 
-	State, err = Session.NewState(SelectMap[ResponseInteger], Config.Messages)
-	if err != nil {
-		log.Fatal(err)
+		State, err = Session.NewState(SelectMap[ResponseInteger], Config.Messages)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
 
