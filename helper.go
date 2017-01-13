@@ -58,7 +58,11 @@ func Clear() {
 //Header simply prints a header containing state/session information
 func Header() {
 	Msg(InfoMsg, "Welcome, %s!\n\n", State.Session.User.Username)
-	Msg(InfoMsg, "Guild: %s, Channel: %s\n", State.Guild.Name, State.Channel.Name)
+	if State.Channel.IsPrivate {
+		Msg(InfoMsg, "Channel: %s\n", State.Channel.Recipient.Username)
+	} else {
+		Msg(InfoMsg, "Guild: %s, Channel: %s\n", State.Guild.Name, State.Channel.Name)
+	}
 }
 
 //ReceivingMessageParser parses receiving message for mentions, images and MultiLine and returns string array

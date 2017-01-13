@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -23,7 +22,6 @@ func ParseForCommands(line string) string {
 		AddUserChannel()
 		line = ""
 	case ":d":
-		Msg(TextMsg, "Not yet fully implemented.\nResults may vary.\n")
 		SelectDeletePrivate()
 		line = ""
 	default:
@@ -68,41 +66,6 @@ func AddUserChannel() {
 	AddUserChannelMenu()
 	State.Enabled = true
 	ShowContent()
-}
-
-//AddUserChannelMenu takes a user from the current guild and adds them to a private message. WILL RETURN ERROR IF IN USER CHANNEL.
-func AddUserChannelMenu() {
-	if State.Channel.IsPrivate {
-		Msg(ErrorMsg, "Currently in a user channel, move to a guild with :g\n")
-	} else {
-		SelectMap := make(map[int]string)
-	Start:
-		SelectID := 0
-		for _, Member := range State.Members {
-			SelectMap[SelectID] = Member.User.ID
-			Msg(TextMsg, "[%d] %s\n", SelectID, Member.User.Username)
-			SelectID++
-		}
-		var response string
-		fmt.Scanf("%s\n", &response)
-
-		if response == "b" {
-			return
-		}
-
-		ResponseInteger, err := strconv.Atoi(response)
-		if err != nil {
-			Msg(ErrorMsg, "(CH) Conversion Error: %s\n", err)
-			goto Start
-		}
-
-		if ResponseInteger > SelectID-1 || ResponseInteger < 0 {
-			Msg(ErrorMsg, "(CH) Error: ID is out of bound\n")
-			goto Start
-		}
-		Chan, err := Session.DiscordGo.UserChannelCreate(SelectMap[ResponseInteger])
-		State.Channel = Chan
-	}
 }
 
 //SelectChannel selects a new Channel
