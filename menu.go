@@ -27,14 +27,6 @@ Start:
 		Msg(TextMsg, "[%d] %s\n", SelectID, UserChannels[SelectID].Recipient.Username)
 		SelectID++
 	}
-	//Msg(TextMsg, "%d", UC[0].Position)
-	//for cha,_ := range UC {
-	//Msg(TextMsg, cha)
-	//fmt.Println("Key:", key, "Value:", Member)
-	//SelectMap[SelectID] = Member.ID
-	//Msg(TextMsg, "[%d] %s\n", SelectID, Member.Name)
-	//	SelectID++
-	//}
 	var response string
 	fmt.Scanf("%s\n", &response)
 
@@ -50,6 +42,45 @@ Start:
 	}
 
 	State.Channel = UserChannels[ResponseInteger]
+
+}
+
+//SelectDeletePrivateMenu deletes a user channel
+func SelectDeletePrivateMenu() {
+
+Start:
+
+	Msg(InfoMsg, "Select a Member:\n")
+
+	UserChannels, err := Session.DiscordGo.UserChannels()
+
+	if err != nil {
+		Msg(ErrorMsg, "No Private Channels\n")
+	}
+
+	UserMap := make(map[int]string)
+	SelectID := 0
+
+	for _, user := range UserChannels {
+		UserMap[SelectID] = user.ID
+		Msg(TextMsg, "[%d] %s\n", SelectID, UserChannels[SelectID].Recipient.Username)
+		SelectID++
+	}
+	var response string
+	fmt.Scanf("%s\n", &response)
+
+	ResponseInteger, err := strconv.Atoi(response)
+	if err != nil {
+		Msg(ErrorMsg, "(GU) Conversion Error: %s\n", err)
+		goto Start
+	}
+
+	if ResponseInteger > SelectID-1 || ResponseInteger < 0 {
+		Msg(ErrorMsg, "(GU) Error: ID is out of bounds\n")
+		goto Start
+	}
+
+	Session.DiscordGo.ChannelDelete(UserChannels[ResponseInteger].ID)
 
 }
 

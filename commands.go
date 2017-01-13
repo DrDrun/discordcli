@@ -22,6 +22,10 @@ func ParseForCommands(line string) string {
 	case ":a":
 		AddUserChannel()
 		line = ""
+	case ":d":
+		Msg(TextMsg, "Not yet fully implemented.\nResults may vary.\n")
+		SelectDeletePrivate()
+		line = ""
 	default:
 		// Nothing
 	}
@@ -113,6 +117,14 @@ func SelectChannel() {
 func SelectPrivate() {
 	State.Enabled = false
 	SelectPrivateMenu()
+	State.Enabled = true
+	ShowContent()
+}
+
+//SelectDeletePrivate a private channel
+func SelectDeletePrivate() {
+	State.Enabled = false
+	SelectDeletePrivateMenu()
 	State.Enabled = true
 	ShowContent()
 }
