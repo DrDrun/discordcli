@@ -37,4 +37,4 @@ When inside a text channel, the following commands are available:
 | :g      | Change listening Guild|
 | :c      | Change listening Channel inside Guild |
 | :m [n]      | Display last [n] messages: ex. `:m 2` displays last two messages |
-| :p      | Pulls up a menu to choose an already active private message |
+| :p      | Pulls up the private channel menu |
