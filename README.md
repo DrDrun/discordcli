@@ -3,7 +3,7 @@ Minimalistic Command-Line Interface for Discord
 
 I haven't tried to mess with the AUR yet, if I ever will, so it is unlikely that anyone has found this.
 
-Reagrdless, most of this isn't my work. Most of it was done by a github user that goes by Rivalo.
+Regardless, most of this isn't my work. Most of it was done by a github user that goes by Rivalo.
 All I have done is implemented private messaging, and while I plan to do more, that does not change
 how little work done here that is mine.
 
