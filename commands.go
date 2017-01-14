@@ -18,12 +18,6 @@ func ParseForCommands(line string) string {
 	case ":p":
 		SelectPrivate()
 		line = ""
-	case ":a":
-		AddUserChannel()
-		line = ""
-	case ":d":
-		SelectDeletePrivate()
-		line = ""
 	default:
 		// Nothing
 	}
