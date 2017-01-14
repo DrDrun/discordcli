@@ -27,10 +27,17 @@ Start:
 		Msg(TextMsg, "[%d] %s\n", SelectID, UserChannels[SelectID].Recipient.Username)
 		SelectID++
 	}
+	Msg(TextMsg, "[b] Extra Options\n")
 	var response string
 	fmt.Scanf("%s\n", &response)
 
 	ResponseInteger, err := strconv.Atoi(response)
+
+	if response == "b" {
+		ExtraPrivateMenuOptions()
+		return
+	}
+
 	if err != nil {
 		Msg(ErrorMsg, "(GU) Conversion Error: %s\n", err)
 		goto Start
@@ -224,6 +231,28 @@ Start:
 	case "d":
 		LeaveServerMenu()
 		goto Start
+	default:
+		return
+	}
+
+	return
+}
+
+//ExtraPrivateMenuOptions adds functionality to UserChannels.
+func ExtraPrivateMenuOptions() {
+	Msg(InfoMsg, "Extra Options:\n")
+	Msg(TextMsg, "[n] Join New User Channel\n")
+	Msg(TextMsg, "[d] Leave User Channel\n")
+	Msg(TextMsg, "[b] Go Back\n")
+
+	var response string
+	fmt.Scanf("%s\n", &response)
+
+	switch response {
+	case "n":
+		AddUserChannel()
+	case "d":
+		SelectDeletePrivate()
 	default:
 		return
 	}
