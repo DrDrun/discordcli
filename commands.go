@@ -83,5 +83,7 @@ func SelectDeletePrivate() {
 	State.Enabled = false
 	SelectDeletePrivateMenu()
 	State.Enabled = true
-	ShowContent()
+	if State.Channel != nil {
+		ShowContent()
+	}
 }

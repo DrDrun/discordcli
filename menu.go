@@ -34,8 +34,32 @@ Start:
 	ResponseInteger, err := strconv.Atoi(response)
 
 	if response == "b" {
-		ExtraPrivateMenuOptions()
-		return
+	New:
+		Msg(InfoMsg, "Extra Options:\n")
+		Msg(TextMsg, "[n] Join New User Channel\n")
+		Msg(TextMsg, "[d] Leave User Channel\n")
+		Msg(TextMsg, "[b] Go Back\n")
+
+		var response string
+		fmt.Scanf("%s\n", &response)
+
+		switch response {
+		case "n":
+			if State.Channel != nil {
+				AddUserChannel()
+				goto End
+			} else {
+				Msg(ErrorMsg, "Join a guild before attempting to join a user channel\n")
+				goto New
+			}
+		case "d":
+			SelectDeletePrivate()
+			goto Start
+		case "b":
+			goto Start
+		default:
+			goto New
+		}
 	}
 
 	if err != nil {
@@ -49,7 +73,7 @@ Start:
 	}
 
 	State.Channel = UserChannels[ResponseInteger]
-
+End:
 }
 
 //SelectDeletePrivateMenu deletes a user channel
@@ -240,22 +264,6 @@ Start:
 
 //ExtraPrivateMenuOptions adds functionality to UserChannels.
 func ExtraPrivateMenuOptions() {
-	Msg(InfoMsg, "Extra Options:\n")
-	Msg(TextMsg, "[n] Join New User Channel\n")
-	Msg(TextMsg, "[d] Leave User Channel\n")
-	Msg(TextMsg, "[b] Go Back\n")
-
-	var response string
-	fmt.Scanf("%s\n", &response)
-
-	switch response {
-	case "n":
-		AddUserChannel()
-	case "d":
-		SelectDeletePrivate()
-	default:
-		return
-	}
 
 	return
 }
