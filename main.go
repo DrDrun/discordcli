@@ -104,6 +104,12 @@ func ShowContent() {
 	}
 }
 
+//ShowEmptyContent shows an empty channel
+func ShowEmptyContent() {
+	Clear()
+	Header()
+}
+
 //ParseForMentions parses input string for mentions
 func ParseForMentions(line string) string {
 	r, err := regexp.Compile("\\@\\w+")

@@ -22,7 +22,7 @@ func ParseForCommands(line string) string {
 		// Nothing
 	}
 
-	//Argument Commands
+	//Argument Commands3
 	if strings.HasPrefix(line, ":m") {
 		AmountStr := strings.Split(line, " ")
 		if len(AmountStr) < 2 {
@@ -75,7 +75,6 @@ func SelectPrivate() {
 	State.Enabled = false
 	SelectPrivateMenu()
 	State.Enabled = true
-	ShowContent()
 }
 
 //SelectDeletePrivate a private channel

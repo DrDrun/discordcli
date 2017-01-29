@@ -47,6 +47,7 @@ Start:
 		case "n":
 			if State.Channel != nil {
 				AddUserChannel()
+				ShowEmptyContent()
 				goto End
 			} else {
 				Msg(ErrorMsg, "Join a guild before attempting to join a user channel\n")
@@ -73,6 +74,7 @@ Start:
 	}
 
 	State.Channel = UserChannels[ResponseInteger]
+	ShowContent()
 End:
 }
 
