@@ -18,17 +18,11 @@ func ParseForCommands(line string) string {
 	case ":p":
 		SelectPrivate()
 		line = ""
-	case ":a":
-		AddUserChannel()
-		line = ""
-	case ":d":
-		SelectDeletePrivate()
-		line = ""
 	default:
 		// Nothing
 	}
 
-	//Argument Commands
+	//Argument Commands3
 	if strings.HasPrefix(line, ":m") {
 		AmountStr := strings.Split(line, " ")
 		if len(AmountStr) < 2 {
@@ -81,7 +75,6 @@ func SelectPrivate() {
 	State.Enabled = false
 	SelectPrivateMenu()
 	State.Enabled = true
-	ShowContent()
 }
 
 //SelectDeletePrivate a private channel
@@ -89,5 +82,7 @@ func SelectDeletePrivate() {
 	State.Enabled = false
 	SelectDeletePrivateMenu()
 	State.Enabled = true
-	ShowContent()
+	if State.Channel != nil {
+		ShowContent()
+	}
 }

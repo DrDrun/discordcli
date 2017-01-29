@@ -19,7 +19,7 @@ const (
 )
 
 //Version is current version const
-const Version = "v1.4.0 - Box Develop"
+const Version = "v1.4.1 - Box Develop"
 
 //Session is global Session
 var Session *DiscordState.Session
@@ -102,6 +102,12 @@ func ShowContent() {
 		State.RetrieveMessages(Config.Messages)
 		PrintMessages(Config.Messages)
 	}
+}
+
+//ShowEmptyContent shows an empty channel
+func ShowEmptyContent() {
+	Clear()
+	Header()
 }
 
 //ParseForMentions parses input string for mentions
