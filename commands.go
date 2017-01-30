@@ -22,7 +22,7 @@ func ParseForCommands(line string) string {
 		// Nothing
 	}
 
-	//Argument Commands3
+	//Argument Commands
 	if strings.HasPrefix(line, ":m") {
 		AmountStr := strings.Split(line, " ")
 		if len(AmountStr) < 2 {

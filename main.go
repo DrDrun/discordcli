@@ -46,13 +46,12 @@ func main() {
 		log.Println("Session Failed")
 		log.Fatalln(err)
 	}
-
 	//Attach New Window
 	InitWindow()
 
 	//Attach Even Handlers
 	State.Session.DiscordGo.AddHandler(newMessage)
-
+	State.Session.DiscordGo.AddHandler(newReaction)
 	//Setup Readline
 	rl, err := readline.NewEx(&readline.Config{
 		Prompt:         "> ",
@@ -61,6 +60,7 @@ func main() {
 
 	defer rl.Close()
 	log.SetOutput(rl.Stderr()) // let "log" write to l.Stderr instead of os.Stderr
+	State.Session.DiscordGo.UpdateStatus(0, "discord-cli")
 
 	//Start Listening
 	for {
