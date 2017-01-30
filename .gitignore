@@ -2,7 +2,6 @@
 *.o
 *.a
 *.so
-discord-cli
 
 # Folders
 _obj
