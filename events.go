@@ -3,7 +3,7 @@ package main
 import (
 	"strings"
 
-	"github.com/Rivalo/discordgo_cli"
+	"github.com/theboxmage/DiscordCli/DiscordGo"
 )
 
 func removeReaction(s *discordgo.Session, r *discordgo.ReactionRemove) {

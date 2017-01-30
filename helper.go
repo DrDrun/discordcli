@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Rivalo/discordgo_cli"
 	"github.com/fatih/color"
+	"github.com/theboxmage/DiscordCli/DiscordGo"
 )
 
 //HexColor is a struct gives RGB values

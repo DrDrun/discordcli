@@ -1,6 +1,6 @@
 package DiscordState
 
-import "github.com/Rivalo/discordgo_cli"
+import "github.com/theboxmage/DiscordCli/DiscordGo"
 
 //State is the current state of the attached client
 type State struct {
