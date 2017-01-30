@@ -6,6 +6,13 @@ import (
 	"github.com/Rivalo/discordgo_cli"
 )
 
+func removeReaction(s *discordgo.Session, r *discordgo.ReactionRemove) {
+
+}
+
+func newReaction(s *discordgo.Session, m *discordgo.ReactionAdd) {
+}
+
 // This function will be called (due to AddHandler above) every time a new
 // message is created on any channel that the autenticated user has access to.
 func newMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
