@@ -4,7 +4,7 @@ package DiscordState
 import (
 	"fmt"
 
-	"github.com/theboxmage/DiscordCli/discordgo_cli"
+	"github.com/Rivalo/discordgo_cli"
 )
 
 //!----- Session -----!//
