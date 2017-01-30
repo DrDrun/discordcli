@@ -50,7 +50,7 @@ func main() {
 	InitWindow()
 
 	//Attach Even Handlers
-	//State.Session.DiscordGo.AddHandler(newMessage)
+	State.Session.DiscordGo.AddHandler(newMessage)
 	State.Session.DiscordGo.AddHandler(newReaction)
 	//Setup Readline
 	rl, err := readline.NewEx(&readline.Config{
