@@ -288,7 +288,7 @@ func (s *Session) event(messageType int, message []byte) {
 			i = e
 		}
 	} else {
-		fmt.Println("Unknown event.")
+		//fmt.Println("Unknown event.")
 		i = e
 	}
 
