@@ -19,7 +19,7 @@ const (
 )
 
 //Version is current version const
-const Version = "v1.4.2 - Box Develop"
+const Version = "v1.4.2 - Box Develop~"
 
 //Session is global Session
 var Session *DiscordState.Session
