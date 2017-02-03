@@ -19,8 +19,8 @@ import (
 
 // printEvent prints out a WSAPI event.
 func printEvent(e *Event) {
-	fmt.Println(fmt.Sprintf("Event. Type: %s, State: %d Operation: %d Direction: %d", e.Type, e.State, e.Operation, e.Direction))
-	printJSON(e.RawData)
+	//fmt.Println(fmt.Sprintf("Event. Type: %s, State: %d Operation: %d Direction: %d", e.Type, e.State, e.Operation, e.Direction))
+	//printJSON(e.RawData)
 }
 
 // printJSON is a helper function to display JSON data in a easy to read format.
