@@ -1,0 +1,17 @@
+compile-go-1.8-debian:
+  image: golang:1.8
+  stage: build
+  script:
+# Dumb workaround because I'm too lazy to mess with the $GOPATH
+  - export BUILDPATH=$(pwd)
+  - mkdir -pv /go/src/github.com/theboxmage/DiscordCli
+  - cp -Rv ./* /go/src/github.com/theboxmage/DiscordCli
+  - cd /go/src/github.com/theboxmage/DiscordCli
+  - go get -v .
+  - go build
+# Dumb workaround pt2
+  - cp -v /go/bin/DiscordCli $BUILDPATH/
+  artifacts:
+    when: on_success
+    paths:
+    - ./DiscordCli
