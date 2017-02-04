@@ -1,4 +1,4 @@
-# discord-cli
+ # discord-cli
 Minimalistic Command-Line Interface for Discord
 
 I haven't tried to mess with the AUR yet, if I ever will, so it is unlikely that anyone has found this.
@@ -10,6 +10,24 @@ how little work done here that is mine.
 Questions can be answered at my discord server, which at the time of editing is empty:
 
 https://discord.gg/qp2Q8jB
+
+## Current build status
+[![build status](https://gitlab.com/chamunks/discordcli/badges/master/build.svg)](https://gitlab.com/chamunks/discordcli/commits/master)
+
+Feel free to download a compiled binary from this [repo here.](https://gitlab.com/chamunks/discordcli/builds)
+
+
+
+## Screenshots
+
+What does chat look like with 256 color sweg.
+![ChatExample](screenshots/screenshotChat.png)
+
+Pressing ```:G + ENTER``` opens the guild[Server] selector.
+![GuildsExample](screenshots/screenshotGuilds.png)
+
+Pressing ```:C + ENTER``` opens the Channel selector.
+![ChannelsExample](screenshots/screenshotChannels.png)
 
 ### How to Install the Master branch?
 Currently the easiest working way to install is to use the Go tools. I'm looking at using GCCGO and makefiles to reduce installation steps, and make setting PATHS unnecessary.
