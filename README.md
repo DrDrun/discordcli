@@ -14,9 +14,6 @@ https://discord.gg/qp2Q8jB
 ## Current build status
 [![build status](https://gitlab.com/chamunks/discordcli/badges/master/build.svg)](https://gitlab.com/chamunks/discordcli/commits/master)
 
-Feel free to download a compiled binary from this [repo here.](https://gitlab.com/chamunks/discordcli/builds)
-
-
 
 ## Screenshots
 
