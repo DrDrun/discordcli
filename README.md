@@ -29,7 +29,7 @@ Pressing ```:C + ENTER``` opens the Channel selector.
 ### How to Install the Master branch?
 Currently the easiest working way to install is to use the Go tools. I'm looking at using GCCGO and makefiles to reduce installation steps, and make setting PATHS unnecessary.
 * Install the Go Tools and setup the `$GOPATH` (There are loads of tutorial for this part)
-* `$ go get -u github.com/Rivalo/discord-cli`
+* `$ go get -u github.com/theboxmage/discordcli`
 * Go to the `bin` folder inside your `$GOPATH`
 * `./discord-cli`
 
