@@ -1,10 +1,14 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 	"os/user"
+
+	"golang.org/x/crypto/ssh/terminal"
 )
 
 //Configuration is a struct that contains all configuration fields
@@ -21,6 +25,7 @@ var Config Configuration
 //GetConfig retrieves configuration file from ~./config/discord-cli, if it doesn't exist it calls CreateConfig()
 func GetConfig() {
 	//Get User
+Start:
 	usr, err := user.Current()
 	if err != nil {
 		log.Fatal(err)
@@ -29,9 +34,9 @@ func GetConfig() {
 	//Get File
 	file, err := os.Open(usr.HomeDir + "/.config/discord-cli/config.json")
 	if err != nil {
-		log.Println(err)
+		log.Println("Creating new config file")
 		CreateConfig()
-		log.Fatalln("Created new config file, please edit contents!")
+		goto Start
 	}
 
 	//Decode File
@@ -53,6 +58,14 @@ func CreateConfig() {
 
 	var EmptyStruct Configuration
 	//Set Default values
+	fmt.Println("Input your email")
+	scan := bufio.NewScanner(os.Stdin)
+	scan.Scan()
+
+	EmptyStruct.Username = scan.Text()
+	fmt.Println("Input your password")
+	password, err := terminal.ReadPassword(0)
+	EmptyStruct.Password = string(password)
 	EmptyStruct.Messages = 10
 	EmptyStruct.MessageDefault = true
 
