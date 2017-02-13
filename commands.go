@@ -49,7 +49,9 @@ func ParseForCommands(line string) string {
 func SelectGuild() {
 	State.Enabled = false
 	SelectGuildMenu()
-	SelectChannelMenu()
+	if !State.Channel.IsPrivate {
+		SelectChannelMenu()
+	}
 	State.Enabled = true
 	ShowContent()
 }
